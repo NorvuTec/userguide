@@ -16,7 +16,7 @@ abstract class UserGuide {
      * Returns the unique id of the user guide
      * @return string unique id of the user guide
      */
-    public function id() : string {
+    public function id(): string {
         return md5(static::class);
     }
 
@@ -25,7 +25,7 @@ abstract class UserGuide {
      * The name will be translated via translator
      * @return string name of the user guide
      */
-    abstract public function name() : string;
+    abstract public function name(): string;
 
     /**
      * Checks if the user guide can be started
@@ -33,7 +33,7 @@ abstract class UserGuide {
      * @default true
      * @return bool true if the user guide can be started
      */
-    public function canStart() : bool {
+    public function canStart(): bool {
         return true;
     }
 
@@ -42,6 +42,6 @@ abstract class UserGuide {
      * @param UserGuideBuilder $builder builder to configure the user guide
      * @return void
      */
-    abstract public function configure(UserGuideBuilder $builder) : void;
+    abstract public function configure(UserGuideBuilder $builder): void;
 
 }

@@ -17,17 +17,22 @@ interface UserGuideBuilder {
      * Set the default / starting route for the user guide
      * Allows the user guide to be started from guide list
      * @param string $route Default route
-     * @return void
      */
-    public function route(string $route) : void;
+    public function route(string $route): static;
+
+    /**
+     * Add an alternate route to the user guide
+     * Will be used if you have different routes for e.g. the same form
+     * @param string $route Alternate route
+     */
+    public function alternateRoute(string $route): static;
 
     /**
      * Add a new step to the user guide
      * @param string $selector CSS selector to attach
      * @param string $content Content of the step
      * @param array $options Options for the step
-     * @return void
      */
-    public function add(string $selector, string $content, array $options = []) : void;
+    public function add(string $selector, string $content, array $options = []): static;
 
 }

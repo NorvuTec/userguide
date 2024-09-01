@@ -25,8 +25,7 @@ final class UserGuideListCommand extends Command {
     /**
      * @inheritDoc
      */
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $output->writeln("  ");
         $output->writeln("  ");
 
@@ -39,14 +38,19 @@ final class UserGuideListCommand extends Command {
         }
 
         $table = new Table($output);
-        $table->setHeaders(["ID", "Name", "Class", "Steps", "Route"]);
+        $table->setHeaders(["ID", "Name", "Class", "Steps", "Route", "Alternate Routes"]);
 
         foreach($userGuides as $userGuide) {
             $builder = new ListUserGuideBuilder();
             $userGuide->configure($builder);
-            $table->addRow([$userGuide->id(), $userGuide->name(), get_class($userGuide), $builder->stepsCount(), ($builder->getRoute() ?: "--")]);
+            $table->addRow([$userGuide->id(), $userGuide->name(), get_class($userGuide), $builder->stepsCount(), ($builder->getRoute() ?: "--"), $builder->alternateRouteCount()]);
         }
+
+        $output->writeln("Found " . count($userGuides) . " user guides:");
+        $output->writeln("  ");
         $table->render();
+        $output->writeln("  ");
+        $output->writeln("  ");
         return Command::SUCCESS;
     }
 

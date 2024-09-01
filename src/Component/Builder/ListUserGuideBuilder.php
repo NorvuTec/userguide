@@ -43,6 +43,14 @@ class ListUserGuideBuilder implements UserGuideBuilder {
         return $this;
     }
 
+    public function getSteps(): array{
+        return $this->steps;
+    }
+
+    public function getAlternateRoutes() : array {
+        return $this->additionalRoutes;
+    }
+
     public function stepsCount() : int {
         return count($this->steps);
     }

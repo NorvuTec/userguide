@@ -1,0 +1,4 @@
+norvutec_userguide_bundle.routes:
+  type: annotation
+  resource: '../src/Controller'
+  name_prefix: 'userguide_'

@@ -46,7 +46,7 @@ class TemplateLoaderExtension extends AbstractExtension {
                 $runningGuide = null;
             }
         }
-        return $environment->render('@NorvutecUserGuideBundle/guide/javascript.html.twig', [
+        return $environment->render('@NorvutecUserGuideBundle/javascript.html.twig', [
             "currentGuide" => $runningGuide,
             "currentStep" => $this->handler->getRunningGuideStep()
         ]);

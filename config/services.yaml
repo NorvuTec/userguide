@@ -17,3 +17,7 @@ services:
         resource: '../src/Command'
         autowire: true
         tags: [ console.command ]
+
+    Norvutec\UserGuideBundle\Twig\TemplateLoaderExtension:
+        tags: [ 'twig.extension' ]
+        autowire: true

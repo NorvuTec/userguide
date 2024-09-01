@@ -9,6 +9,10 @@ namespace Norvutec\UserGuideBundle\Component\Builder;
 interface UserGuideBuilder {
 
     /**
+     * Option to set the title of the step
+     */
+    public const OPTION_TITLE = "title";
+    /**
      * Let the screen scroll to the element
      */
     public const OPTION_AUTOSCROLL = "autoscroll";

@@ -3,7 +3,7 @@
 namespace Norvutec\UserGuideBundle\Component\Builder;
 
 /**
- * Default implementation of the {@link UserGuideBuilder}
+ * List implementation of the {@link UserGuideBuilder}
  */
 class ListUserGuideBuilder implements UserGuideBuilder {
 

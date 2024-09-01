@@ -2,16 +2,34 @@
 
 class Userguide {
 
-    constructor(guideId) {
+    static __instance = null;
+
+    static startNewGuide(guideId) {
+        if (Userguide.__instance == null) {
+            Userguide.__instance = new Userguide(guideId, 0);
+        }
+    }
+
+    static startGuide(guideId, step) {
+        if (Userguide.__instance == null) {
+            Userguide.__instance = new Userguide(guideId, step);
+        }
+    }
+
+    constructor(guideId, startStep) {
         this.guideId = guideId;
-        this.currentStep = 0;
         this.steps = [];
-        this.completedCounter = 0;
-        this.failedCounter = 0;
-        this.isCanceled = false;
-        this.log = [];
+        this.currentStep = startStep;
+        this.loaded = false;
 
         this.__load();
+    }
+
+    setStep(step) {
+        this.currentStep = step;
+        if(this.loaded) {
+            this.__updateStep();
+        }
     }
 
     __load() {
@@ -24,10 +42,15 @@ class Userguide {
             response.json().then(data => {
                 console.log(data);
                 this.steps = data['steps'];
+                this.loaded = true;
             });
         }).catch(error => {
             console.error(error);
         });
+    }
+
+    __updateStep() {
+
     }
 
 }

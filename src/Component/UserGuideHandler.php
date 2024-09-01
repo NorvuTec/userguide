@@ -54,6 +54,14 @@ readonly class UserGuideHandler {
     }
 
     /**
+     * Returns the current step of the running user guide
+     * @return int|null the current step of the running user guide
+     */
+    public function getRunningGuideStep(): ?int {
+        return $currentGuideId = $this->getBag(false)?->getCurrentStep();
+    }
+
+    /**
      * Starts a new user guide by its id
      * @param string $userGuideId id of the user guide to start
      * @throws InvalidUserGuideException

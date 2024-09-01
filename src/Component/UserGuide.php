@@ -2,8 +2,10 @@
 
 namespace Norvutec\UserGuideBundle\Component;
 
+use Norvutec\UserGuideBundle\Component\Builder\RouteCheckUserGuideBuilder;
 use Norvutec\UserGuideBundle\Component\Builder\UserGuideBuilder;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Abstract class for UserGuide definition

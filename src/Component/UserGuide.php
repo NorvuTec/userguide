@@ -3,11 +3,13 @@
 namespace Norvutec\UserGuideBundle\Component;
 
 use Norvutec\UserGuideBundle\Component\Builder\UserGuideBuilder;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 /**
  * Abstract class for UserGuide definition
  * Will be tagged by services with norvutec.user_guide.guide
  */
+#[AutoconfigureTag('norvutec.user_guide.guide')]
 abstract class UserGuide {
 
     /**

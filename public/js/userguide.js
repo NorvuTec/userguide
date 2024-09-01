@@ -1,18 +1,18 @@
 
 
-class Userguide {
+class UserGuide {
 
     static __instance = null;
 
     static startNewGuide(guideId) {
-        if (Userguide.__instance == null) {
-            Userguide.__instance = new Userguide(guideId, 0);
+        if (UserGuide.__instance == null) {
+            UserGuide.__instance = new UserGuide(guideId, 0);
         }
     }
 
     static startGuide(guideId, step) {
-        if (Userguide.__instance == null) {
-            Userguide.__instance = new Userguide(guideId, step);
+        if (UserGuide.__instance == null) {
+            UserGuide.__instance = new UserGuide(guideId, step);
         }
     }
 

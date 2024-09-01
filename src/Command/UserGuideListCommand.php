@@ -54,5 +54,4 @@ final class UserGuideListCommand extends Command {
         return Command::SUCCESS;
     }
 
-
 }

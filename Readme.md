@@ -46,10 +46,10 @@ class InvoiceFormUserGuide extends UserGuide {
 
     public function configure(UserGuideBuilder $builder): void {
         $builder
-            ->route("app_accounting_invoice_new")
-            ->alternateRoute("app_accounting_invoice_edit")
-            ->add("[id$=form_invoiceNo]", "Insert Number of invoice here")
-            ->add("[id$=form_customer]", "Select customer here");
+            ->route("app_accounting_invoice_new") # Main Route for the guide
+            ->alternateRoute("app_accounting_invoice_edit") # Alternate Route for the guide
+            ->add("[id$=form_invoiceNo]", "Insert Number of invoice here") # Add a step to the guide
+            ->add("[id$=form_customer]", "Select customer here"); # Add a step to the guide
     }
 }
 ```

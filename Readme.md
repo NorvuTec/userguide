@@ -53,7 +53,8 @@ class InvoiceFormUserGuide extends UserGuide {
     }
 }
 ```
-
+> The ``add(Selector, Content, Options)``-Method have to be called in the correct order for the guide.
+> The ``Selector`` is a javascript selector to select the element in the DOM. You can use all available syntaxes for ``querySelectorAll``. The guide will use the first element found for the steps link.
 
 # TODO INFOS FÜR MICH 
 

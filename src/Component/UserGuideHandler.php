@@ -8,6 +8,7 @@ use Norvutec\UserGuideBundle\Event\UserGuideStartedEvent;
 use Norvutec\UserGuideBundle\Exception\InvalidUserGuideException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment;
 use Twig\Error\Error;
 
@@ -19,7 +20,7 @@ readonly class UserGuideHandler {
     public function __construct(
         private EventDispatcherInterface $dispatcher,
         private UserGuideRegistry        $registry,
-        private Request                  $request,
+        private RequestStack             $requestStack,
         private Environment              $twig
     ) { }
 
@@ -30,7 +31,7 @@ readonly class UserGuideHandler {
      */
     private function getBag(bool $register): ?UserGuideBag {
         try{
-            $bag = $this->request->getSession()->getBag('user_guide');
+            $bag = $this->requestStack->getCurrentRequest()->getSession()->getBag('user_guide');
             if($bag instanceof UserGuideBag) {
                 return $bag;
             }
@@ -38,7 +39,7 @@ readonly class UserGuideHandler {
         }catch (\InvalidArgumentException $e) {
             if($register) {
                 $newBag = new UserGuideBag();
-                $this->request->getSession()->registerBag($newBag);
+                $this->requestStack->getCurrentRequest()->getSession()->registerBag($newBag);
                 return $newBag;
             }
         }

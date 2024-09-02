@@ -57,16 +57,17 @@ class DefaultUserGuideBuilder implements UserGuideBuilder {
      * @throws SyntaxError
      */
     public function getStepsWithTemplate(Environment $twig): array {
-        $steps = $this->steps;
+        $steps = [];
         $counter = 0;
-        foreach($steps as $step) {
-            $step['template'] = $twig->render('@NorvutecUserGuideBundle/tooltip.html.twig', [
+        foreach($this->steps as $step) {
+            $step['template'] = $twig->render('@NorvutecUserGuide/tooltip.html.twig', [
                 "title" => ($step['options'][self::OPTION_TITLE] ?? null),
                 "content" => $step['content'],
                 "options" => $step['options'],
                 "isFirst" => $counter == 0,
                 "isLast" => $counter == (count($steps) - 1)
             ]);
+            $steps[] = $step;
             $counter++;
         }
         return $steps;

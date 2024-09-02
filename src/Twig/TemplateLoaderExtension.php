@@ -5,6 +5,7 @@ namespace Norvutec\UserGuideBundle\Twig;
 use Norvutec\UserGuideBundle\Component\Builder\RouteCheckUserGuideBuilder;
 use Norvutec\UserGuideBundle\Component\UserGuideHandler;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -16,7 +17,7 @@ class TemplateLoaderExtension extends AbstractExtension {
 
     public function __construct(
         private readonly UserGuideHandler   $handler,
-        private readonly Request            $request
+        private readonly RequestStack       $requestStack
     )
     {
 
@@ -41,12 +42,12 @@ class TemplateLoaderExtension extends AbstractExtension {
         if($runningGuide != null) {
             $routeCheckBuilder = new RouteCheckUserGuideBuilder();
             $runningGuide->configure($routeCheckBuilder);
-            if(!$routeCheckBuilder->isMatching($this->request)) {
+            if(!$routeCheckBuilder->isMatching($this->requestStack->getCurrentRequest())) {
                 // Wrong route for the guide
                 $runningGuide = null;
             }
         }
-        return $environment->render('@NorvutecUserGuideBundle/javascript.html.twig', [
+        return $environment->render('@NorvutecUserGuide/javascript.html.twig', [
             "currentGuide" => $runningGuide,
             "currentStep" => $this->handler->getRunningGuideStep()
         ]);

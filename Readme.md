@@ -1,4 +1,4 @@
-# Userguide Bundle
+# UserGuide Bundle
 
 Bundle for Symfony for creating user guides inside your application.  
 The user guides are displayed inside the application inside the template.  

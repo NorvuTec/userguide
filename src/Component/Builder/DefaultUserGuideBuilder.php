@@ -65,8 +65,10 @@ class DefaultUserGuideBuilder implements UserGuideBuilder {
                 "content" => $step['content'],
                 "options" => $step['options'],
                 "isFirst" => $counter == 0,
-                "isLast" => $counter == (count($steps) - 1)
+                "isLast" => $counter == (count($steps) - 1),
+                "step" => ($counter + 1)
             ]);
+            $step['step'] = ($counter + 1);
             $steps[] = $step;
             $counter++;
         }

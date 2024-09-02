@@ -68,7 +68,7 @@ The user guide bundle contains a path for listing all available user guides. Thi
 All routes are starting with ``/userguide/`` and are named with ``userguide_``.
 
 ### Templates
-``javascript_loader.html.twig`` Holds the Script-Tag for the userguide.js and the auto-continue of the userguide. (Loaded by ``userGuideJavascript()``)
+``javascript_loader.html.twig`` Holds the Script-Tag for the userguide.js and the auto-continue of the userguide. (Loaded by ``userGuideJavascript()``)  
 ``tooltip.html.twig`` Is the displayed tooltip of the userguide
 
 ### Styles

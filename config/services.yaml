@@ -12,6 +12,8 @@ services:
     Norvutec\UserGuideBundle\Component\UserGuideRegistry:
         arguments: [ !tagged norvutec.user_guide.guide ]
         autowire: true
+    Norvutec\UserGuideBundle\Component\UserGuideHandler:
+        autowire: true
 
     Norvutec\UserGuideBundle\Command\:
         resource: '../src/Command'

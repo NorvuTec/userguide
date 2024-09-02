@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94a6d046-9045-4c90-8674-9ac56ea76c55" name="Changes" comment="update readme">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/UserGuideDebugCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UserGuideDebugCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/Builder/DefaultUserGuideBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Builder/DefaultUserGuideBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/UserGuideHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/UserGuideHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GuideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GuideController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tooltip.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tooltip.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,23 +81,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Git Reposetory/GrieferGames/profilesystem&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Git Reposetory/GrieferGames_Cloud/DistributedCityBuild",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Git Reposetory\NorvuTec\userguide\bin" />
@@ -121,7 +124,7 @@
       <updated>1669929333090</updated>
       <workItem from="1725130145788" duration="1871000" />
       <workItem from="1725174308441" duration="15866000" />
-      <workItem from="1725258241867" duration="2322000" />
+      <workItem from="1725258241867" duration="6000000" />
     </task>
     <task id="LOCAL-00001" summary="create intellij">
       <option name="closed" value="true" />
@@ -251,7 +254,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725259148221</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1725264653399</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1725264653399</updated>
+    </task>
+    <task id="LOCAL-00018" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1725264690438</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725264690438</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1725264705270</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725264705270</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

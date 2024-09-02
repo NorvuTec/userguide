@@ -56,6 +56,27 @@ class InvoiceFormUserGuide extends UserGuide {
 > The ``add(Selector, Content, Options)``-Method have to be called in the correct order for the guide.
 > The ``Selector`` is a javascript selector to select the element in the DOM. You can use all available syntaxes for ``querySelectorAll``. The guide will use the first element found for the steps link.
 
+5. Include start button inside of your template (optional) (TODO)
+```twig
+{{ userGuideButton() }}
+```
+
+## Configuration / Overrides
+
+### Path Security
+The user guide bundle contains a path for listing all available user guides. This path is not secured by default.  
+All routes are starting with ``/userguide/`` and are named with ``userguide_``.
+
+### Templates
+``javascript_loader.html.twig`` Holds the Script-Tag for the userguide.js and the auto-continue of the userguide.  
+``tooltip.html.twig`` Is the displayed tooltip of the userguide
+
+### Styles
+All styles are located in the ``css/userguide.css`` file. Just override the styles in your own css file.  
+Alternatively you can override the template and include your own styles.
+
+
+
 # TODO INFOS FÜR MICH 
 
 

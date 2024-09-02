@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94a6d046-9045-4c90-8674-9ac56ea76c55" name="Changes" comment="implement first stuff">
+    <list default="true" id="94a6d046-9045-4c90-8674-9ac56ea76c55" name="Changes" comment="add first readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/UserGuideListCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/UserGuideListCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Builder/DefaultUserGuideBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Builder/DefaultUserGuideBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Builder/ListUserGuideBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Builder/ListUserGuideBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Builder/UserGuideBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Builder/UserGuideBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/UserGuide.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/UserGuide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DependencyInjection/UserGuideExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DependencyInjection/UserGuideExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,27 +78,30 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Git Reposetory/NorvuTec/cron-manager",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Git Reposetory/GrieferGames/profilesystem&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Git Reposetory\NorvuTec\userguide\bin" />
       <recent name="D:\Git Reposetory\NorvuTec\userguide" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Git Reposetory\NorvuTec\userguide\templates" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -122,7 +120,8 @@
       <option name="presentableId" value="Default" />
       <updated>1669929333090</updated>
       <workItem from="1725130145788" duration="1871000" />
-      <workItem from="1725174308441" duration="10858000" />
+      <workItem from="1725174308441" duration="15866000" />
+      <workItem from="1725258241867" duration="333000" />
     </task>
     <task id="LOCAL-00001" summary="create intellij">
       <option name="closed" value="true" />
@@ -156,7 +155,63 @@
       <option name="project" value="LOCAL" />
       <updated>1725187591758</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implement list command">
+      <option name="closed" value="true" />
+      <created>1725188043213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725188043213</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implement list command">
+      <option name="closed" value="true" />
+      <created>1725188162002</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725188162002</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add userguide debug command">
+      <option name="closed" value="true" />
+      <created>1725189418105</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725189418105</updated>
+    </task>
+    <task id="LOCAL-00008" summary="start the loading functions">
+      <option name="closed" value="true" />
+      <created>1725191239718</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725191239718</updated>
+    </task>
+    <task id="LOCAL-00009" summary="start the loading functions">
+      <option name="closed" value="true" />
+      <created>1725191321229</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1725191321229</updated>
+    </task>
+    <task id="LOCAL-00010" summary="start style">
+      <option name="closed" value="true" />
+      <created>1725192783398</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725192783398</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add first readme">
+      <option name="closed" value="true" />
+      <created>1725193074349</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725193074349</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +221,12 @@
     <MESSAGE value="create intellij" />
     <MESSAGE value="start project" />
     <MESSAGE value="implement first stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement first stuff" />
+    <MESSAGE value="implement list command" />
+    <MESSAGE value="add userguide debug command" />
+    <MESSAGE value="start the loading functions" />
+    <MESSAGE value="start style" />
+    <MESSAGE value="add first readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="add first readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

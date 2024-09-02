@@ -35,7 +35,24 @@ return [
 {% endblock %}
 ``` 
 
+4. Add user guide classes to your application
+```php
+class InvoiceFormUserGuide extends UserGuide {
 
+    public function name(): string
+    {
+        return "invoiceform";
+    }
+
+    public function configure(UserGuideBuilder $builder): void {
+        $builder
+            ->route("app_accounting_invoice_new")
+            ->alternateRoute("app_accounting_invoice_edit")
+            ->add("[id$=form_invoiceNo]", "Insert Number of invoice here")
+            ->add("[id$=form_customer]", "Select customer here");
+    }
+}
+```
 
 
 # TODO INFOS FÜR MICH 

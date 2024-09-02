@@ -3,6 +3,7 @@
 namespace Norvutec\UserGuideBundle\Command;
 
 use Norvutec\UserGuideBundle\Component\Builder\ListUserGuideBuilder;
+use Norvutec\UserGuideBundle\Component\UserGuideHandler;
 use Norvutec\UserGuideBundle\Component\UserGuideRegistry;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -20,6 +21,7 @@ final class UserGuideDebugCommand extends Command {
 
     public function __construct(
         private readonly UserGuideRegistry      $registry,
+        private readonly UserGuideHandler       $handler,
         private readonly SerializerInterface    $serializer
     )
     {
@@ -39,9 +41,8 @@ final class UserGuideDebugCommand extends Command {
             $output->writeln("<error>User guide with ID $guideId not found</error>");
             return Command::FAILURE;
         }
-        $builder = new ListUserGuideBuilder();
-        $guide->configure($builder);
-        $json = $this->serializer->serialize($builder, 'json', ['json_encode_options' => JSON_PRETTY_PRINT]);
+        $guideData = $this->handler->getGuideData($guide);
+        $json = $this->serializer->serialize($guideData, 'json', ['json_encode_options' => JSON_PRETTY_PRINT]);
         $output->writeln("User guide details for $guideId:");
         $output->writeln($json);
         return Command::SUCCESS;

@@ -2,11 +2,14 @@
 
 namespace Norvutec\UserGuideBundle\Component;
 
+use Norvutec\UserGuideBundle\Component\Builder\DefaultUserGuideBuilder;
 use Norvutec\UserGuideBundle\Event\UserGuideEvents;
 use Norvutec\UserGuideBundle\Event\UserGuideStartedEvent;
 use Norvutec\UserGuideBundle\Exception\InvalidUserGuideException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Twig\Environment;
+use Twig\Error\Error;
 
 /**
  * Handles the execution and management of user guides
@@ -16,7 +19,8 @@ readonly class UserGuideHandler {
     public function __construct(
         private EventDispatcherInterface $dispatcher,
         private UserGuideRegistry        $registry,
-        private Request                  $request
+        private Request                  $request,
+        private Environment              $twig
     ) { }
 
     /**
@@ -85,6 +89,18 @@ readonly class UserGuideHandler {
 
         $event = new UserGuideStartedEvent($userGuide);
         $this->dispatcher->dispatch($event, UserGuideEvents::USER_GUIDE_STARTED);
+    }
+
+    /**
+     * generates the json data for the user guide
+     * @param UserGuide $guide user guide
+     * @return array guide data
+     * @throws Error
+     */
+    public function getGuideData(UserGuide $guide) : array {
+        $builder = new DefaultUserGuideBuilder();
+        $guide->configure($builder);
+        return $builder->getStepsWithTemplate($this->twig);
     }
 
 }

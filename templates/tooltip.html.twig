@@ -1,5 +1,5 @@
 <div class="userguide_window">
-    <h3>Lorem Ipsum</h3>
-    <p>Dolor sit amet, consectetur adipiscing elit.</p>
+    {% if title %}<h3>{{ title }}</h3>{% endif %}
+    <p>{{ content|trans|raw }}</p>
     <i class="userguide_window_arrow"></i>
 </div>

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94a6d046-9045-4c90-8674-9ac56ea76c55" name="Changes" comment="add first readme">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="94a6d046-9045-4c90-8674-9ac56ea76c55" name="Changes" comment="update readme">
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +120,7 @@
       <updated>1669929333090</updated>
       <workItem from="1725130145788" duration="1871000" />
       <workItem from="1725174308441" duration="15866000" />
-      <workItem from="1725258241867" duration="333000" />
+      <workItem from="1725258241867" duration="660000" />
     </task>
     <task id="LOCAL-00001" summary="create intellij">
       <option name="closed" value="true" />
@@ -211,7 +210,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725193074349</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1725258696716</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1725258696716</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1725258770914</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725258770914</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +241,8 @@
     <MESSAGE value="start the loading functions" />
     <MESSAGE value="start style" />
     <MESSAGE value="add first readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="add first readme" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

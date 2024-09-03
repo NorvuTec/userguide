@@ -1,6 +1,6 @@
 <script type="text/javascript" src="{{ asset('bundles/norvutecuserguide/js/userguide.js') }}"></script>
 {% if currentGuide is not null %}
     <script type="text/javascript">
-        UserGuide.startGuide('{{ currentGuide }}', {{ currentStep }});
+        UserGuide.startGuide('{{ currentGuide.id() }}', {{ currentStep }});
     </script>
 {% endif %}

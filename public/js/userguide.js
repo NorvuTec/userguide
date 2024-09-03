@@ -31,7 +31,6 @@ class UserGuide {
             }
         }).then(response => {
             response.json().then(data => {
-                console.log(data);
                 this.steps = data['steps'];
                 this.loaded = true;
                 this.__loadStep(this.currentStep);
@@ -45,7 +44,7 @@ class UserGuide {
         if(!this.loaded) {
             return;
         }
-        if(step === 0) {
+        if(step === 0 || step === undefined) {
             // new start of the guide
             step = 1;
         }
@@ -87,10 +86,8 @@ class UserGuide {
             console.error("UserGuide: No Element found: "+stepData['selector']);
             return false;
         }
-        const tmpElm = document.createElement("template");
-        tmpElm.innerHTML = stepData["template"];
-        const newElement = tmpElm.firstChild;
-        targetElement.insertAdjacentElement("afterbegin", newElement);
+        targetElement.insertAdjacentHTML("beforebegin", stepData["template"]);
+        let newElement = targetElement.previousElementSibling;
         let usg = this;
         let nextElems = newElement.getElementsByClassName("guide-next");
         if(nextElems.length !== 0) {
@@ -115,7 +112,7 @@ class UserGuide {
     }
 
     __completeGuide() {
-        fetch("/userguide/complete/" + this.guideId, {
+        fetch("/userguide/set_guide_complete/" + this.guideId, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json'
@@ -137,11 +134,8 @@ class UserGuide {
     }
 
     static addDocumentListeners() {
-        console.log("ADDING LISTENERS");
         document.querySelectorAll("[data-user-guide]").forEach(element => {
-            console.log("LOAD FOR: "+element)
             element.addEventListener("click", function() {
-                console.log("CLICK");
                 let guideId = element.getAttribute("data-user-guide");
                 if(element.hasAttribute("data-user-guide-step")) {
                     let step = element.getAttribute("data-user-guide-step");

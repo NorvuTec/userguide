@@ -10,6 +10,8 @@ use Norvutec\UserGuideBundle\Exception\InvalidUserGuideException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 use Twig\Environment;
 use Twig\Error\Error;
 
@@ -26,25 +28,12 @@ readonly class UserGuideHandler {
     ) { }
 
     /**
-     * Returns the user guide session bag of the current user
-     * @param bool $register whether to register the bag if it does not exist
-     * @return ?UserGuideBag
+     * Returns the current session
+     * @return SessionInterface
      */
-    private function getBag(bool $register): ?UserGuideBag {
-        try{
-            $bag = $this->requestStack->getCurrentRequest()->getSession()->getBag('user_guide');
-            if($bag instanceof UserGuideBag) {
-                return $bag;
-            }
-            throw new \InvalidArgumentException("The bag is not an instance of UserGuideBag");
-        }catch (\InvalidArgumentException $e) {
-            if($register) {
-                $newBag = new UserGuideBag();
-                $this->requestStack->getCurrentRequest()->getSession()->registerBag($newBag);
-                return $newBag;
-            }
-        }
-        return null;
+    private function getSession(): SessionInterface
+    {
+        return  $this->requestStack->getCurrentRequest()->getSession();
     }
 
     /**
@@ -52,7 +41,7 @@ readonly class UserGuideHandler {
      * @return UserGuide|null the currently running user guide
      */
     public function getRunningGuide() : ?UserGuide {
-        $currentGuideId = $this->getBag(false)?->getCurrentGuide();
+        $currentGuideId = $this->getSession()->get('user_guide_current_guide', null);
         if($currentGuideId == null) {
             return null;
         }
@@ -64,7 +53,7 @@ readonly class UserGuideHandler {
      * @param string $guideId id of the user guide
      */
     public function setRunningGuide(string $guideId): void {
-        $this->getBag(true)->setCurrentGuide($guideId);
+        $this->getSession()->set('user_guide_current_guide', $guideId);
     }
 
     /**
@@ -72,7 +61,7 @@ readonly class UserGuideHandler {
      * @return int|null the current step of the running user guide
      */
     public function getRunningGuideStep(): ?int {
-        return $this->getBag(false)?->getCurrentStep();
+        return $this->getSession()->get('user_guide_current_guide_step', null);
     }
 
     /**
@@ -81,8 +70,8 @@ readonly class UserGuideHandler {
      * @param int $guideStep step to set
      */
     public function setRunningGuideStep(string $guideId, int $guideStep): void {
-        $this->getBag(true)->setCurrentGuide($guideId);
-        $this->getBag(false)->setCurrentStep($guideStep);
+        $this->getSession()->set('user_guide_current_guide', $guideId);
+        $this->getSession()->set('user_guide_current_guide_step', $guideStep);
     }
 
     /**
@@ -90,9 +79,9 @@ readonly class UserGuideHandler {
      * @param string $guideId id of the user guide to complete
      */
     public function completeGuide(string $guideId): void {
-        if($this->getBag(false)?->getCurrentGuide() == $guideId) {
-            $this->getBag(false)->setCurrentGuide(null);
-            $this->getBag(false)->setCurrentStep(0);
+        if($this->getSession()->get('user_guide_current_guide', null) == $guideId) {
+            $this->getSession()->set('user_guide_current_guide', null);
+            $this->getSession()->set('user_guide_current_guide_step', 0);
         }
         $guide = $this->registry->getUserGuideById($guideId);
         if($guide != null) {
@@ -119,9 +108,8 @@ readonly class UserGuideHandler {
      * @param UserGuide $userGuide
      */
     public function startUserGuide(UserGuide $userGuide) : void {
-        $bag = $this->getBag(true);
-        $bag->setCurrentGuide($userGuide->id());
-        $bag->setCurrentStep(0);
+        $this->getSession()->set('user_guide_current_guide', $userGuide->id());
+        $this->getSession()->set('user_guide_current_guide_step', 0);
 
         $event = new UserGuideStartedEvent($userGuide);
         $this->dispatcher->dispatch($event, UserGuideEvents::USER_GUIDE_STARTED);

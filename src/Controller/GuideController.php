@@ -26,7 +26,7 @@ class GuideController extends AbstractController {
      * @param int $step step number
      * @return JsonResponse
      */
-    #[Route('/userguide/set_step_loaded/{guide}/{step}', name: 'userguide_set_step_loaded', methods: ['POST'])]
+    #[Route('/userguide/set_step_loaded/{guide}/{step}', name: 'set_step_loaded', methods: ['POST'])]
     public function setLoadedStep(string $guide, int $step): JsonResponse {
         $this->handler->setRunningGuideStep($guide, $step);
         return $this->json(['success' => true]);
@@ -37,7 +37,7 @@ class GuideController extends AbstractController {
      * @param string $guide guide id
      * @return JsonResponse
      */
-    #[Route('/userguide/set_guide_complete/{guide}', name: 'userguide_set_guide_complete', methods: ['POST'])]
+    #[Route('/userguide/set_guide_complete/{guide}', name: 'set_guide_complete', methods: ['POST'])]
     public function setGuideComplete(string $guide): JsonResponse {
         $this->handler->completeGuide($guide);
         return $this->json(['success' => true]);
@@ -50,7 +50,7 @@ class GuideController extends AbstractController {
      * @throws InvalidUserGuideException
      * @throws Error
      */
-    #[Route('/userguide/load/{guide}', name: 'userguide_load')]
+    #[Route('/userguide/load/{guide}', name: 'load')]
     public function ajaxGuide(string $guide): JsonResponse {
         $guide = $this->registry->getUserGuideById($guide);
         if($guide == null) {

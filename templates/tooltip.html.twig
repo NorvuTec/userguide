@@ -1,5 +1,12 @@
 <div class="userguide_window">
     {% if title %}<h3>{{ title }}</h3>{% endif %}
     <p>{{ content|trans|raw }}</p>
+    {% if not isFirst %}
+        <button type="button" class="guide-prev">Zurück</button>
+    {% endif %}
+    <button type="button" class="guide-complete">Ausblenden</button>
+    {% if not isLast %}
+        <button type="button" class="guide-next">Weiter</button>
+    {% endif %}
     <i class="userguide_window_arrow"></i>
 </div>

@@ -49,7 +49,7 @@ class TemplateLoaderExtension extends AbstractExtension {
         }
         return $environment->render('@NorvutecUserGuide/javascript_loader.html.twig', [
             "currentGuide" => $runningGuide,
-            "currentStep" => $this->handler->getRunningGuideStep()
+            "currentStep" => $this->handler->getRunningGuideStep() ?: 0
         ]);
     }
 

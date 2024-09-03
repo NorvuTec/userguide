@@ -1,4 +1,6 @@
-norvutec_userguide_bundle.routes:
-  type: annotation
-  resource: '../src/Controller'
+controllers:
+  type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: Norvutec\UserGuideBundle\Controller
   name_prefix: 'userguide_'

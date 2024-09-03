@@ -2,7 +2,9 @@
 
 namespace Norvutec\UserGuideBundle;
 
+use Norvutec\UserGuideBundle\DependencyInjection\GuideParameterBagCompiler;
 use Norvutec\UserGuideBundle\DependencyInjection\UserGuideExtension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 

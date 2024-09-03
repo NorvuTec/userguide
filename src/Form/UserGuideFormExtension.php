@@ -35,9 +35,14 @@ class UserGuideFormExtension extends AbstractTypeExtension {
         if(!in_array('attr', $view->vars)) {
             $view->vars['attr'] = [];
         }
+        if(!in_array('label_attr', $view->vars)) {
+            $view->vars['label_attr'] = [];
+        }
         $view->vars['attr']['data-assigned-user-guide'] = $options[self::USER_GUIDE];
+        $view->vars['label_attr']['data-assigned-user-guide'] = $options[self::USER_GUIDE];
         if($options[self::USER_GUIDE_STEP] != null) {
             $view->vars['attr']['data-assigned-user-guide-step'] = $options[self::USER_GUIDE_STEP];
+            $view->vars['label_attr']['data-assigned-user-guide-step'] = $options[self::USER_GUIDE_STEP];
         }
     }
 

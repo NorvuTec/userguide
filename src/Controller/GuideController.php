@@ -56,6 +56,7 @@ class GuideController extends AbstractController {
         if($guide == null) {
             throw new InvalidUserGuideException($guide);
         }
+        $this->handler->setRunningGuide($guide->id());
         return $this->json($this->handler->getGuideData($guide));
     }
 

@@ -23,6 +23,24 @@ class UserGuide {
         this.__load();
     }
 
+    __load() {
+        fetch("/userguide/load/"+this.guideId, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            response.json().then(data => {
+                console.log(data);
+                this.steps = data['steps'];
+                this.loaded = true;
+                this.__loadStep(this.currentStep);
+            });
+        }).catch(error => {
+            console.error(error);
+        });
+    }
+
     __loadStep(step) {
         if(!this.loaded) {
             return;
@@ -46,24 +64,6 @@ class UserGuide {
             this.__saveStepLoaded(step);
         }
         this.currentStep = step;
-    }
-
-    __load() {
-        fetch("/userguide/load/"+this.guideI, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            response.json().then(data => {
-                console.log(data);
-                this.steps = data['steps'];
-                this.loaded = true;
-                this.__loadStep(this.currentStep);
-            });
-        }).catch(error => {
-            console.error(error);
-        });
     }
 
     __getStepData(stepId) {
@@ -137,3 +137,11 @@ class UserGuide {
     }
 
 }
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("[data-userguide]").forEach(element => {
+        element.addEventListener("click", function() {
+            let guideId = element.getAttribute("data-userguide");
+            UserGuide.startNewGuide(guideId);
+        });
+    });
+});

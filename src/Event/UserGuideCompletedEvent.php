@@ -6,9 +6,9 @@ use Norvutec\UserGuideBundle\Component\UserGuide;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
- * Event dispatched when a user guide is started.
+ * Event dispatched when a user guide is completed.
  */
-final class UserGuideStartedEvent extends Event {
+final class UserGuideCompletedEvent extends Event {
 
     public function __construct(
         private readonly UserGuide $userGuide
@@ -17,7 +17,7 @@ final class UserGuideStartedEvent extends Event {
     }
 
     /**
-     * Get the user guide that was started.
+     * Get the user guide that was completed.
      * @return UserGuide
      */
     public function getUserGuide(): UserGuide

@@ -21,6 +21,29 @@ class GuideController extends AbstractController {
     ) { }
 
     /**
+     * Handles a step of the guide as loaded
+     * @param string $guide guide id
+     * @param int $step step number
+     * @return JsonResponse
+     */
+    #[Route('/userguide/set_step_loaded/{guide}/{step}', name: 'userguide_set_step_loaded', methods: ['POST'])]
+    public function setLoadedStep(string $guide, int $step): JsonResponse {
+        $this->handler->setRunningGuideStep($guide, $step);
+        return $this->json(['success' => true]);
+    }
+
+    /**
+     * Handles the guide as completed
+     * @param string $guide guide id
+     * @return JsonResponse
+     */
+    #[Route('/userguide/set_guide_complete/{guide}', name: 'userguide_set_guide_complete', methods: ['POST'])]
+    public function setGuideComplete(string $guide): JsonResponse {
+        $this->handler->completeGuide($guide);
+        return $this->json(['success' => true]);
+    }
+
+    /**
      * Loads the user guide for javascript
      * @param string $guide guide id to load
      * @return JsonResponse guide data

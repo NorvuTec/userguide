@@ -3,6 +3,7 @@
 namespace Norvutec\UserGuideBundle\Component;
 
 use Norvutec\UserGuideBundle\Component\Builder\DefaultUserGuideBuilder;
+use Norvutec\UserGuideBundle\Event\UserGuideCompletedEvent;
 use Norvutec\UserGuideBundle\Event\UserGuideEvents;
 use Norvutec\UserGuideBundle\Event\UserGuideStartedEvent;
 use Norvutec\UserGuideBundle\Exception\InvalidUserGuideException;
@@ -59,11 +60,45 @@ readonly class UserGuideHandler {
     }
 
     /**
+     * Sets the current step of the running user guide
+     * @param string $guideId id of the user guide
+     */
+    public function setRunningGuide(string $guideId): void {
+        $this->getBag(true)->setCurrentGuide($guideId);
+    }
+
+    /**
      * Returns the current step of the running user guide
      * @return int|null the current step of the running user guide
      */
     public function getRunningGuideStep(): ?int {
-        return $currentGuideId = $this->getBag(false)?->getCurrentStep();
+        return $this->getBag(false)?->getCurrentStep();
+    }
+
+    /**
+     * Sets the current step of the running user guide
+     * @param string $guideId id of the user guide
+     * @param int $guideStep step to set
+     */
+    public function setRunningGuideStep(string $guideId, int $guideStep): void {
+        $this->getBag(true)->setCurrentGuide($guideId);
+        $this->getBag(false)->setCurrentStep($guideStep);
+    }
+
+    /**
+     * Completes the current user guide
+     * @param string $guideId id of the user guide to complete
+     */
+    public function completeGuide(string $guideId): void {
+        if($this->getBag(false)?->getCurrentGuide() == $guideId) {
+            $this->getBag(false)->setCurrentGuide(null);
+            $this->getBag(false)->setCurrentStep(0);
+        }
+        $guide = $this->registry->getUserGuideById($guideId);
+        if($guide != null) {
+            $event = new UserGuideCompletedEvent($guide);
+            $this->dispatcher->dispatch($event, UserGuideEvents::USER_GUIDE_COMPLETED);
+        }
     }
 
     /**
@@ -101,7 +136,11 @@ readonly class UserGuideHandler {
     public function getGuideData(UserGuide $guide) : array {
         $builder = new DefaultUserGuideBuilder();
         $guide->configure($builder);
-        return $builder->getStepsWithTemplate($this->twig);
+        return [
+            "id" => $guide->id(),
+            "name" => $guide->name(),
+            "steps" => $builder->getStepsWithTemplate($this->twig)
+        ];
     }
 
 }

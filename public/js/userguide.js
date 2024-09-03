@@ -136,18 +136,22 @@ class UserGuide {
         }).then(r => {});
     }
 
-}
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll("[data-userguide]").forEach(element => {
-        element.addEventListener("click", function() {
-            let guideId = element.getAttribute("data-userguide");
-            if(element.hasAttribute("data-userguide-step")) {
-                let step = element.getAttribute("data-userguide-step");
-                UserGuide.startGuide(guideId, step);
-                return;
-            }
-            UserGuide.startNewGuide(guideId);
+    static addDocumentListeners() {
+        console.log("ADDING LISTENERS");
+        document.querySelectorAll("[data-user-guide]").forEach(element => {
+            console.log("LOAD FOR: "+element)
+            element.addEventListener("click", function() {
+                console.log("CLICK");
+                let guideId = element.getAttribute("data-user-guide");
+                if(element.hasAttribute("data-user-guide-step")) {
+                    let step = element.getAttribute("data-user-guide-step");
+                    UserGuide.startGuide(guideId, step);
+                    return;
+                }
+                UserGuide.startNewGuide(guideId);
+            });
         });
-    });
-});
-document.addEventListener("a")
+    }
+
+}
+UserGuide.addDocumentListeners();

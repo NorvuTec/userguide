@@ -19,7 +19,7 @@ abstract class UserGuide {
      * @return string unique id of the user guide
      */
     public function id(): string {
-        return md5(static::class);
+        return self::guideId();
     }
 
     /**
@@ -45,5 +45,13 @@ abstract class UserGuide {
      * @return void
      */
     abstract public function configure(UserGuideBuilder $builder): void;
+
+    /**
+     * Returns the unique id of the user guide
+     * @return string unique id of the user guide
+     */
+    public static function guideId(): string {
+        return md5(static::class);
+    }
 
 }

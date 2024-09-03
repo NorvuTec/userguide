@@ -141,6 +141,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll("[data-userguide]").forEach(element => {
         element.addEventListener("click", function() {
             let guideId = element.getAttribute("data-userguide");
+            if(element.hasAttribute("data-userguide-step")) {
+                let step = element.getAttribute("data-userguide-step");
+                UserGuide.startGuide(guideId, step);
+                return;
+            }
             UserGuide.startNewGuide(guideId);
         });
     });

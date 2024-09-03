@@ -23,3 +23,6 @@ services:
     Norvutec\UserGuideBundle\Twig\TemplateLoaderExtension:
         tags: [ 'twig.extension' ]
         autowire: true
+
+    Norvutec\UserGuideBundle\Form\UserGuideFormExtension:
+        tags: [ 'form.type_extension' ]

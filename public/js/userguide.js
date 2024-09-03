@@ -67,7 +67,7 @@ class UserGuide {
 
     __getStepData(stepId) {
         for(let i = 0; i < this.steps.length; i++) {
-            if(this.steps[i].step === stepId) {
+            if(this.steps[i].step === parseInt(stepId)) {
                 return this.steps[i];
             }
         }
@@ -112,6 +112,7 @@ class UserGuide {
     }
 
     __completeGuide() {
+        this.__removeLoadedTooltips();
         fetch("/userguide/set_guide_complete/" + this.guideId, {
             method: 'POST',
             headers: {

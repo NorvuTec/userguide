@@ -1,5 +1,3 @@
-
-
 class UserGuide {
 
     static __instance = null;

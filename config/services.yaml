@@ -10,7 +10,7 @@ services:
             tags: [ 'norvutec.user_guide.guide' ]
 
     Norvutec\UserGuideBundle\Component\UserGuideRegistry:
-        arguments: [ !tagged norvutec.user_guide.guide ]
+        arguments: [ !tagged_iterator norvutec.user_guide.guide ]
         autowire: true
     Norvutec\UserGuideBundle\Component\UserGuideHandler:
         autowire: true

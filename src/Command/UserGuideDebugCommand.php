@@ -28,7 +28,7 @@ final class UserGuideDebugCommand extends Command {
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->addArgument("guide", InputArgument::REQUIRED, "The ID of the user guide to debug.");
     }

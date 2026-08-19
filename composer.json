@@ -1,7 +1,7 @@
 {
     "name": "norvutec/userguide",
     "description": "Tool for creating userguides for your application inside of the page.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "symfony-bundle",
     "license": "proprietary",
     "homepage": "https://norvutec.de",
@@ -15,15 +15,15 @@
     ],
     "require": {
         "php": ">=8.2",
-        "symfony/console": "7.*",
+        "symfony/console": "8.*",
         "symfony/flex": "^2",
-        "symfony/form": "7.*",
-        "symfony/framework-bundle": "7.*",
-        "symfony/runtime": "7.*",
-        "symfony/serializer": "7.*",
-        "symfony/translation": "7.*",
-        "symfony/twig-bundle": "7.*",
-        "symfony/yaml": "7.*",
+        "symfony/form": "8.*",
+        "symfony/framework-bundle": "8.*",
+        "symfony/runtime": "8.*",
+        "symfony/serializer": "8.*",
+        "symfony/translation": "8.*",
+        "symfony/twig-bundle": "8.*",
+        "symfony/yaml": "8.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
@@ -51,7 +51,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.*"
+            "require": "8.*"
         }
     }
 }
